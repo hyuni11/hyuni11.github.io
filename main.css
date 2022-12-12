@@ -51,14 +51,13 @@ input, select {
 
 /* header */
 header {
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
     width: 100%;
-    height: 40px;
-    padding: 5px 0;
+    height: 50px;
     text-align: center;
     border-bottom: 1px solid var(--lg);
 }
@@ -143,7 +142,7 @@ header div {
     width: 280px;
     margin: 0 auto 20px auto;
     font-family: var(--fn);
-    font-size: 12pt;
+    font-size: 10pt;
 }
 .prof .me .txt_zone .inner_txt {
     margin-left: 30px;
@@ -157,14 +156,28 @@ header div {
     width: 1280px;
     padding: 80px 0;
 }
-.tit {}
+.tit_zone {
+    position: relative;
+    display: flex;
+    margin-left: 80px;
+}
+.tit_zone .tit {
+    position: absolute;
+    font-family: var(--fb);
+    font-size: 28pt;
+    color: var(--mg);
+    margin: 20px 0 0 20px;
+}
 /* center */
 
 /* <info> */
 .info {
     width: 320px;
+
+
+
+     
     height: 100%;
-    background: var(--lg);
 }
 .info_box {
     width: 200px;
