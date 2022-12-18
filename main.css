@@ -42,6 +42,8 @@ input, select {
     --fb: 'Baskervville', serif;
     --fn: 'Noto Sans KR', sans-serif;
 
+
+
     --iv: #fffff0;
     --mg: #25442F;
     --dg: #142419;
@@ -84,11 +86,12 @@ header div {
     display: flex;
     justify-content: space-between;
     margin-top: -1px;
+    height: calc(100vh - 50px);
 }
 /* <prof> */
 .prof {
     width: 320px;
-    height: 1030px;
+    height: calc(100vh - 50px);
 }
 .prof .click {
     position: fixed;
@@ -154,35 +157,80 @@ header div {
 /* center */
 .center {
     width: 1280px;
-    padding: 80px 0;
+    padding-top: 80px;
 }
 .tit_zone {
     position: relative;
     display: flex;
+    align-items: flex-end;
     margin-left: 80px;
 }
 .tit_zone .tit {
     position: absolute;
     font-family: var(--fb);
-    font-size: 28pt;
+    font-size: 32pt;
     color: var(--mg);
     margin: 20px 0 0 20px;
+}
+
+.box_view {
+    display: flex;
+    margin: 40px 0 80px 120px;
+}
+.box_view .box_list {
+    width: 1080px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.box_view .box_list .box {
+    width: 320px;
+    height: 320px;
+    box-sizing: border-box;
+    border: 10px solid var(--dg);
+    margin: 0 40px 40px 0;
+}
+.box_view .box_list .box:nth-child(n+4){margin-bottom: 0;}
+.box_view .box_list .box .name{
+    display: flex;
+    align-items: center;
+}
+.box_view .box_list .box .name h2{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: var(--lg);
+    margin-right: 10px;
+    font-weight: 400;
+}
+.box_view .box_list .box .name span{font-size: 16pt; color: var(--lg);}
+
+.box_view .more {
+    display: flex;
+    width: 80px;
+    height: 680px;
+    background: var(--dg);
+}
+.box_view .more span {
+    font-family: var(--fb);
+    color: var(--iv);
+    font-size: 24pt;
+    -webkit-transform: rotate(90deg);
+    -webkit-transform-origin:left top ;
+    margin-left: 40px;
+    margin-top: 5px;
 }
 /* center */
 
 /* <info> */
 .info {
     width: 320px;
-
-
-
-     
     height: 100%;
 }
 .info_box {
     width: 200px;
-    height: 100%;
-    margin: 80px auto 40px auto;
+    margin: 80px auto 0px auto;
     background: var(--mg);
     color: var(--iv);
 }
