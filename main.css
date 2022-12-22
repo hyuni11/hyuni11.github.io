@@ -35,14 +35,26 @@ input, select {
     background: none;
     box-shadow: none;
   }
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 2.5px;
+    background: rgba(37, 68, 47, 0.3);
+  }
 /* reset */
 
 /* root */
 :root {
     --fb: 'Baskervville', serif;
     --fn: 'Noto Sans KR', sans-serif;
+    --fi: 'FontAwesome';
 
-
+    --fs-xs: 6pt;
+    --fs-s: 12pt;
+    --fs-m: 16pt;
+    --fs-l: 24pt;
+    --fs-xl: 32pt;
 
     --iv: #fffff0;
     --mg: #25442F;
@@ -50,7 +62,6 @@ input, select {
     --lg: #7C8F82;
 }
 /* root */
-
 /* header */
 header {
     display: flex;
@@ -61,21 +72,30 @@ header {
     width: 100%;
     height: 50px;
     text-align: center;
+    background: #fff;
     border-bottom: 1px solid var(--lg);
 }
-header span {
+header .head {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+header .head span {
     font-family: var(--fb);
-    font-size: 12pt;
+    font-size: var(--fs-s);
     font-weight: bold;
     margin-bottom: 2px;
     color: var(--mg);
 }
-header div {
+header .head div {
     width: 80px;
     height: 15px;
     line-height: 15px;
     font-family: var(--fn);
-    font-size: 6pt;
+    font-size: var(--fs-xs);
     background: var(--mg);
     color: var(--iv);
 }
@@ -85,14 +105,10 @@ header div {
 .content {
     display: flex;
     justify-content: space-between;
-    margin-top: -1px;
     height: calc(100vh - 50px);
 }
 /* <prof> */
-.prof {
-    width: 320px;
-    height: calc(100vh - 50px);
-}
+.prof {width: 320px;display: flex;}
 .prof .click {
     position: fixed;
     display: flex;
@@ -106,7 +122,7 @@ header div {
     border: 1px solid var(--lg);
     border-radius: 0 10px 10px 0;
     color: var(--lg);
-    font-size: 18pt;
+    font-size: var(--fs-l);
     font-family: var(--fn);
 }
 .prof .click span {
@@ -114,50 +130,149 @@ header div {
     text-align: center;
 }
 .prof .click a {
-    width: 40px;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    width: 40px;
     color: var(--lg);
 }
 .prof .me {
-    position: fixed;
     width: 320px;
     height: 100%;
     background: var(--mg);
     color: var(--iv);
 }
 .prof .me .pic {
-    width: 240px;
-    height: 300px;
-    margin: 40px auto;
+    width: 220px;
+    height: 280px;
+    margin: 40px auto 20px auto;
     border-radius: 50%;
-    background: url('Me.jpg');
+    background: url('./img/Me.jpg');
     background-size: cover;
     background-position: center;
 }
 .prof .me .name {
     text-align: center;
-    font-size: 28pt;
+    font-size: var(--fs-l);
     font-weight: 600;
     margin-top: -20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .prof .me .txt_zone {
     width: 280px;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 5px auto;
+    line-height: 125%;
     font-family: var(--fn);
-    font-size: 10pt;
+    font-size: var(--fs-s);
 }
-.prof .me .txt_zone .inner_txt {
-    margin-left: 30px;
-}
+.prof .me .txt_zone .inner_txt {margin-left: 30px;}
+.prof .hide_prof{display: none;}
 /* <prof> */
 /* <prof> <open> */
+.prof.open {width: 1240px;display: flex;}
+.prof.open .click {width: 1280px;}
+.prof.open .click span {display: none;}
+.prof.open .click a {
+    width: 100%;
+    justify-content: flex-end;
+}
+.prof.open .click a::after {
+    content: '\f053';
+    font-family: var(--fi);
+    font-weight: 900;
+    width: 40px;
+}
+.prof.open .click a i {display: none;}
+
+.prof.open .me {width: 400px;}
+.prof.open .hide_prof{
+    display: block;
+    width: 840px;
+    padding-top: 40px;
+    background: var(--mg);
+}
+.prof.open .hide_prof .tit_zone{margin: 0; align-items: center;}
+.prof.open .hide_prof .tit{color: var(--iv);}
+.prof.open .hide_prof .tit2{margin: 0 0 20px 220px;}
+.prof.open .hide_prof .skills{margin-bottom: 40px;}
+.prof.open .hide_prof .g_box{
+    display: flex;
+    align-items: center;
+    width: 800px; 
+    height: 300px;
+    margin: 20px 40px 0 0;
+    background: var(--dg);
+}
+.prof.open .hide_prof .skills .g_box .skill {
+    width: 25%;
+    text-align: center;
+    color: var(--lg);
+}
+.prof.open .hide_prof .skills .g_box .skill .name {font-size: var(--fs-s);}
+.prof.open .hide_prof .skills .g_box .skill .percent {font-size: var(--fs-m);}
+.prof.open .hide_prof .skills .g_box .skill .gage {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(var(--lg) 360deg, var(--mg) 0deg);
+    margin: 20px auto 5px auto;
+}
+.prof.open .hide_prof .skills .g_box .skill .gage::before{
+    content: '';
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: var(--dg);
+}
+.prof.open .hide_prof .skills .g_box .html .gage{background: conic-gradient(var(--lg) 270deg, var(--mg) 0deg);;}
+.prof.open .hide_prof .skills .g_box .css .gage{background: conic-gradient(var(--lg) 180deg, var(--mg) 0deg);;}
+.prof.open .hide_prof .skills .g_box .js .gage{background: conic-gradient(var(--lg) 288deg, var(--mg) 0deg);;}
+.prof.open .hide_prof .skills .g_box .react .gage{background: conic-gradient(var(--lg) 216deg, var(--mg) 0deg);;}
+.prof.open .hide_prof .skills .g_box .skill .gage i{position: absolute;font-size: 500%;}
+
+.prof.open .hide_prof .cne .g_box .list{
+    width: 50%;
+    height: 90%;
+    margin-left: 20px;
+    color: var(--iv);
+    font-size: var(--fs-s);
+    line-height: 175%;
+    border-right: 3px solid var(--lg);
+}
+.prof.open .hide_prof .cne .g_box .list .li {margin-left: 10px;}
+.prof.open .hide_prof .cne .g_box .edu{border: none;}
+/* center */
+.prof.open ~ .center {width: 360px;}
+.prof.open ~ .center .tit_zone {margin-left: 40px;}
+.prof.open ~ .center .box_view {width:330px;margin: 40px 0 0 40px; display: block;}
+.prof.open ~ .center .box_view .box_list {overflow: auto; padding: 0;}
+.prof.open ~ .center .box_view .box_list .box {margin-bottom: 20px;}
+.prof.open ~ .center .box_view .more {
+    width: 320px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+.prof.open ~ .center .box_view .more span {
+    font-size: var(--fs-m);
+    -webkit-transform: none;
+    -webkit-transform-origin: none;
+    margin: 0 0 0 20px;
+}
+/* center */
 /* <prof> <open> */
 
 /* center */
 .center {
     width: 1280px;
-    padding-top: 80px;
+    padding-top: 40px;
+    height: calc(100vh - 90px)
 }
 .tit_zone {
     position: relative;
@@ -168,27 +283,32 @@ header div {
 .tit_zone .tit {
     position: absolute;
     font-family: var(--fb);
-    font-size: 32pt;
+    font-size: var(--fs-xl);
     color: var(--mg);
     margin: 20px 0 0 20px;
 }
-
 .box_view {
     display: flex;
+    width: calc(100% - 120px);
     margin: 40px 0 80px 120px;
 }
 .box_view .box_list {
-    width: 1080px;
+    width: 100%;
+    height: 680px;
+    padding-right: 40px;
     display: flex;
     flex-wrap: wrap;
+    align-content: space-between;
     justify-content: space-between;
+    overflow: hidden;
 }
 .box_view .box_list .box {
+    position: relative;
     width: 320px;
     height: 320px;
     box-sizing: border-box;
     border: 10px solid var(--dg);
-    margin: 0 40px 40px 0;
+    cursor: pointer;
 }
 .box_view .box_list .box:nth-child(n+4){margin-bottom: 0;}
 .box_view .box_list .box .name{
@@ -202,10 +322,17 @@ header div {
     text-align: center;
     background: var(--lg);
     margin-right: 10px;
+    font-size: var(--fs-m);
     font-weight: 400;
 }
-.box_view .box_list .box .name span{font-size: 16pt; color: var(--lg);}
-
+.box_view .box_list .box .name span{font-size: var(--fs-m); color: var(--lg);font-weight: 600;}
+.box_view .box_list .box .thum img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: -1;
+}
 .box_view .more {
     display: flex;
     width: 80px;
@@ -215,7 +342,7 @@ header div {
 .box_view .more span {
     font-family: var(--fb);
     color: var(--iv);
-    font-size: 24pt;
+    font-size: var(--fs-l);
     -webkit-transform: rotate(90deg);
     -webkit-transform-origin:left top ;
     margin-left: 40px;
@@ -226,7 +353,6 @@ header div {
 /* <info> */
 .info {
     width: 320px;
-    height: 100%;
 }
 .info_box {
     width: 200px;
@@ -236,7 +362,7 @@ header div {
 }
 .info_box h1 {
     text-align: center;
-    font-size: 16pt;
+    font-size: var(--fs-m);
     border-top: 1px solid var(--iv);
 }
 .info_box .info_tit {
@@ -245,7 +371,7 @@ header div {
 }
 .info_box .info_tit h1 {border: none;}
 .info_box .font { padding: 10px;}
-.info_box .font p {font-size: 12pt;}
+.info_box .font p {font-size: var(--fs-s);}
 .info_box .color {padding: 10px;}
 .info_box .color .color_box {
     display: flex;

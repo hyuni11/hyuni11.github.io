@@ -1,15 +1,21 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const canvas = document.querySelector('#deco');
-    const ctx = canvas.getContext('2d');
+    const openBtn = document.querySelector('.click');
+    const prof = document.querySelector('.prof');
+    const h_b = document.querySelector('.h_b');
+    const h_t = document.querySelector('.h_t');
 
-    ctx.beginPath();
-    ctx.moveTo(0, 60);
-    ctx.lineTo(0,0);
-    ctx.lineTo(170,0);
-    ctx.lineTo(230,60);
-    ctx.lineTo(400,60);
-    
-    ctx.strokeStyle='--mg';
+    openBtn.addEventListener('click', function (e) {
+        
+        prof.classList.toggle('open')
 
-    ctx.stroke()
+        if (!document.querySelector('.open')) {
+            h_t.style.color = '#25442F';
+            h_b.style.color = '#fffff0';
+            h_b.style.background = '#25442F';
+        } else {
+            h_t.style.color = '#fffff0';
+            h_b.style.color = '#25442F';
+            h_b.style.background = '#fffff0';
+        }
+    });
 })
