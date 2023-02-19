@@ -69,10 +69,9 @@ function Cloning(){
     updateWidth();
     settingPos();
     
-    cardz.classList.add('animated');
-    // setTimeout(function(){
-    //     cardz.classList.add('animated');
-    // },100);
+    setTimeout(function(){
+        cardz.classList.add('animated');
+    },100);
 }
 function updateWidth(){
     var newCardCount = document.querySelectorAll('.card-zone li').length;
@@ -103,6 +102,6 @@ function moveCard(num){
         }, 500);
         setTimeout(function(){
             cardz.classList.add('animated');
-        }, 550);
+        }, 510);
     }
 }
