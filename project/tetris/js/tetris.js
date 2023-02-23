@@ -129,7 +129,7 @@ function makeNewBlock(){
 function scoreToLevel(){
     score++;
     scoreDisplay.innerText = score*100;
-    if(score%50 === 0){
+    if(score%30 === 0){
         duration = duration-50;
         if(duration<=100){
             duration = 100;
