@@ -91,7 +91,7 @@ function seizeBlock() {
     checkMatch();
 }
 function checkMatch(){
-    
+    let matchLine = 0;
     const childNodes = playBoard.childNodes;
     childNodes.forEach(child =>{
         let matched =true;
@@ -101,9 +101,10 @@ function checkMatch(){
             }
         })
         if(matched){
+            matchLine++
             child.remove();
             prependBox();
-            scoreToLevel();
+            scoreToLevel(matchLine);
         }
     })
 
@@ -126,9 +127,7 @@ function makeNewBlock(){
     tempMovingItem = {...movingItem};
     renderBlocks();
 }
-function scoreToLevel(){
-    score++;
-    scoreDisplay.innerText = score*100;
+function scoreToLevel(matchLine){
     if(score%30 === 0){
         duration = duration-50;
         if(duration<=100){
@@ -138,9 +137,13 @@ function scoreToLevel(){
         downInterval = setInterval(()=>{
             moveBlock('top',1)
         },duration)
-        console.log('00')
     }
-    console.log(duration)
+    if(matchLine == 4){
+        score++;
+        console.log('tetris!')
+    }
+    score++;
+    scoreDisplay.innerText = score*100;
 }
 function checkEmpty(target) {
     if (!target || target.classList.contains('seized')) {
