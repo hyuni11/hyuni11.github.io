@@ -103,8 +103,7 @@ function checkMatch(){
         if(matched){
             child.remove();
             prependBox();
-            score++;
-            scoreDisplay.innerText = score*100;
+            scoreToLevel();
         }
     })
 
@@ -126,6 +125,22 @@ function makeNewBlock(){
     movingItem.direction =0;
     tempMovingItem = {...movingItem};
     renderBlocks();
+}
+function scoreToLevel(){
+    score++;
+    scoreDisplay.innerText = score*100;
+    if(score%50 === 0){
+        duration = duration-50;
+        if(duration<=100){
+            duration = 100;
+        }
+        clearInterval(downInterval);
+        downInterval = setInterval(()=>{
+            moveBlock('top',1)
+        },duration)
+        console.log('00')
+    }
+    console.log(duration)
 }
 function checkEmpty(target) {
     if (!target || target.classList.contains('seized')) {
@@ -160,7 +175,6 @@ function gameover(){
 }
 
 document.addEventListener("keydown", e => {
-    console.log(e.keyCode,e.key)
     switch (e.keyCode) {
         case 39:
             moveBlock('left', 1);
