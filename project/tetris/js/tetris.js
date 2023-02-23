@@ -209,5 +209,5 @@ restart.addEventListener('click',()=>{
     clearInterval(downInterval);
     downInterval = setInterval(()=>{
         moveBlock('top',1)
-    },500)
+    },duration)
 })
