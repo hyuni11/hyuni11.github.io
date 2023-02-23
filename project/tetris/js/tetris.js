@@ -3,7 +3,11 @@ import Blocks from "./blocks.js";
 const playBoard = document.querySelector('.board > ul');
 const scoreDisplay = document.querySelector('.score');
 const gameoverText = document.querySelector('.gameover');
-const restart = document.querySelector('.gameover > button');
+const retry = document.querySelector('.gameover > button');
+const notice = document.querySelector('.notice');
+const start = document.querySelector('.notice > button');
+const pause = document.querySelector('.pause');
+const restart = document.querySelector('.pause > button');
 
 const gameRow = 20;
 const gameCols = 10;
@@ -20,7 +24,10 @@ const movingItem = {
     left: 3
 };
 
-init();
+start.addEventListener('click',()=>{
+    notice.style.display = 'none';
+    init();
+})
 
 function init() {
     tempMovingItem = { ...movingItem };
@@ -141,6 +148,13 @@ function blockDrop(){
         moveBlock('top',1)
     },10)
 }
+function pauseGame(){
+    pause.style.display = 'flex';
+    clearInterval(downInterval);
+    downInterval = setInterval(()=>{
+        moveBlock('top',0)
+    },0)
+}
 function gameover(){
     gameoverText.style.display = 'flex';
 }
@@ -162,13 +176,24 @@ document.addEventListener("keydown", e => {
             break;
         case 32:
             blockDrop();
+            break;
+        case 27:
+            pauseGame();
+            break;
         default:
             break;
 
     }
 })
-restart.addEventListener('click',()=>{
+retry.addEventListener('click',()=>{
     playBoard.innerHTML = '';
     gameoverText.style.display = 'none';
     init();
+})
+restart.addEventListener('click',()=>{
+    pause.style.display = 'none';
+    clearInterval(downInterval);
+    downInterval = setInterval(()=>{
+        moveBlock('top',1)
+    },500)
 })
