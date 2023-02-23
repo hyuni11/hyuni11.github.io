@@ -135,11 +135,18 @@ function chasngeDirection() {
     direction === 3 ? tempMovingItem.direction = 0 : tempMovingItem.direction += 1;
     renderBlocks();
 }
+function blockDrop(){
+    clearInterval(downInterval);
+    downInterval = setInterval(()=>{
+        moveBlock('top',1)
+    },10)
+}
 function gameover(){
     gameoverText.style.display = 'flex';
 }
 
 document.addEventListener("keydown", e => {
+    console.log(e.keyCode,e.key)
     switch (e.keyCode) {
         case 39:
             moveBlock('left', 1);
@@ -151,8 +158,10 @@ document.addEventListener("keydown", e => {
             moveBlock('top', 1);
             break;
         case 38:
-            chasngeDirection()
+            chasngeDirection();
             break;
+        case 32:
+            blockDrop();
         default:
             break;
 
