@@ -205,6 +205,7 @@ document.addEventListener("keydown", e => {
 retry.addEventListener('click',()=>{
     playBoard.innerHTML = '';
     score = 0;
+    duration = 500;
     scoreDisplay.innerText = score;
     gameoverText.style.display = 'none';
     init();
