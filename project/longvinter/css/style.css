@@ -46,9 +46,13 @@ input, select {
 :root{
   --grn: #428049;
   --dgrn: #2e5933;
+  --blu: #3942be;
+  --dblu: #2c3392;
   --iv: #fff5d9;
+  --oiv: rgba(255, 245, 217, 0.5);
   --miv: #f9eccb;
   --giv: #b1c09c;
+  --biv: #aca7b8;
   --div: #644844;
 }
 /* reset */
@@ -91,9 +95,13 @@ input, select {
   line-height: 3rem;
   text-align: center;
 }
+.schValue {
+  margin-top: 0.5rem;
+}
 
 .content{
   padding: 1rem;
+  padding-top: 0;
 }
 .listTitle{
   font-weight: 700;
@@ -104,7 +112,7 @@ input, select {
   display: flex;
   flex-direction: column;
 }
-.port, .npc{
+.port, .npc {
   height: 2rem;
   display: flex;
   flex-wrap: wrap;
@@ -141,7 +149,7 @@ input, select {
   margin-right: 0.5rem;
   text-align: center;
   border-radius: 5px;
-  background: var(--giv);
+  background: var(--oiv);
 }
 .closeBtn {
   display: none;

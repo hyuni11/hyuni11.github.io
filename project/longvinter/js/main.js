@@ -4,10 +4,9 @@ import NPCs from "./npc.js";
 const portList = document.querySelector('.portList');
 const npcList = document.querySelector('.npcList');
 
-const schForm = document.querySelector('#schForm');
 const sch = document.querySelector('#search');
 const schType = document.querySelector('#schType');
-const schBtn = document.querySelector('#schBtn');
+const schVal = document.querySelector('.schValue');
 
 showList();
 
@@ -90,135 +89,138 @@ document.addEventListener('click', (e) => {
 
 })
 
-function showList() {
+function showList(type, val, count) {
     // portList.innerHTML += '';
     const allPort = Object.keys(Ports);
-    for (var i = 0; i < allPort.length; i++) {
-        const li = document.createElement('li');
-        li.className += `port ` + allPort[i] + ``;
-        li.innerHTML += `
-        <span class = 'Site'>`+ Ports[allPort[i]].site + `</span>
-        <span class = 'Name'>`+ Ports[allPort[i]].name + `</span>
-        `;
-        const portVM = Ports[allPort[i]].vendingMachine;
-        const div = document.createElement('div');
-        const vmList = document.createElement('div');
-        vmList.className += 'vmList'
-        vmList.innerHTML += `<img class='map' src=` + Ports[allPort[i]].map + `>`
-        div.className += 'iconList'
-        for (var j = 0; j < portVM.length; j++) {
-            div.innerHTML += `<span class='vmIcon ` + j + `'><i class="fa-solid fa-store" style="color:` + Ports[allPort[i]].vendingMachine[j].color + `"></i></span>`
-            const ul = document.createElement('ul');
-            ul.className += 'vm ' + portVM[j].color + ''
-            ul.innerHTML += `<h3 class='blTitle'>Buy List</h3>`
-            for (var k = 0; k < portVM[j].buy.length; k++) {
-                const prod = document.createElement('li');
-                const buyProd = portVM[j].buy[k];
-                prod.className += 'product buy'
-                prod.innerHTML += `
-                <span class='prodName'>`+ buyProd.name + `</span>
-                <span class='prodPrice'>`+ buyProd.price + `</span>
-                `
-                ul.appendChild(prod);
+        for (var i = 0; i < allPort.length; i++) {
+            const li = document.createElement('li');
+            li.className += `port ` + allPort[i] + ``;
+            li.innerHTML += `
+            <span class = 'Site'>`+ Ports[allPort[i]].site + `</span>
+            <span class = 'Name'>`+ Ports[allPort[i]].name + `</span>
+            `;
+            const portVM = Ports[allPort[i]].vendingMachine;
+            const div = document.createElement('div');
+            const vmList = document.createElement('div');
+            vmList.className += 'vmList'
+            vmList.innerHTML += `<img class='map' src=` + Ports[allPort[i]].map + `>`
+            div.className += 'iconList'
+            for (var j = 0; j < portVM.length; j++) {
+                div.innerHTML += `<span class='vmIcon ` + j + `'><i class="fa-solid fa-store" style="color:` + Ports[allPort[i]].vendingMachine[j].color + `"></i></span>`
+                const ul = document.createElement('ul');
+                ul.className += 'vm ' + portVM[j].color + ''
+                ul.innerHTML += `<h3 class='blTitle'>Buy List</h3>`
+                for (var k = 0; k < portVM[j].buy.length; k++) {
+                    const prod = document.createElement('li');
+                    const buyProd = portVM[j].buy[k];
+                    prod.className += 'product buy'
+                    prod.innerHTML += `
+                    <span class='prodName'>`+ buyProd.name + `</span>
+                    <span class='prodPrice'>`+ buyProd.price + `</span>
+                    `
+                    ul.appendChild(prod);
+                }
+                ul.innerHTML += `<h3 class='slTitle'>Sell List</h3>`
+                for (var l = 0; l < portVM[j].sell.length; l++) {
+                    const prod = document.createElement('li');
+                    const sellProd = portVM[j].sell[l];
+                    prod.className += 'product sell'
+                    prod.innerHTML += `
+                    <span class='prodName'>`+ sellProd.name + `</span>
+                    <span class='prodPrice'>`+ sellProd.price + `</span>
+                    `
+                    ul.appendChild(prod);
+                }
+                vmList.appendChild(ul);
             }
-            ul.innerHTML += `<h3 class='slTitle'>Sell List</h3>`
-            for (var l = 0; l < portVM[j].sell.length; l++) {
-                const prod = document.createElement('li');
-                const sellProd = portVM[j].sell[l];
-                prod.className += 'product sell'
-                prod.innerHTML += `
-                <span class='prodName'>`+ sellProd.name + `</span>
-                <span class='prodPrice'>`+ sellProd.price + `</span>
-                `
-                ul.appendChild(prod);
-            }
-            vmList.appendChild(ul);
+            div.innerHTML += `<span class='closeBtn'><i class="fa-solid fa-xmark"></i></span>`
+            li.appendChild(div);
+            li.appendChild(vmList);
+            portList.appendChild(li);
         }
-        div.innerHTML += `<span class='closeBtn'><i class="fa-solid fa-xmark"></i></span>`
-        li.appendChild(div);
-        li.appendChild(vmList);
-        portList.appendChild(li);
-    }
 
     // npcList.innerHTML += '';
     const allNPC = Object.keys(NPCs);
-    for (var i = 0; i < allNPC.length; i++) {
-        const li = document.createElement('li');
-        li.className += `npc ` + allNPC[i] + ``;
-        li.innerHTML += `
-        <span class = 'Site'>`+ NPCs[allNPC[i]].site + `</span>
-        <span class = 'Name'>`+ NPCs[allNPC[i]].name + `</span>
-        `;
-        const npcVM = NPCs[allNPC[i]].vendingMachine;
-        const div = document.createElement('div');
-        const vmList = document.createElement('div');
-        vmList.className += 'vmList'
-        vmList.innerHTML += `<img class='map' src=` + NPCs[allNPC[i]].map + `>`
-        div.className += 'iconList'
-        for (var j = 0; j < npcVM.length; j++) {
-            if ((npcVM[j].color) == 'npcs') {
-                div.innerHTML += `<span class='vmIcon ` + j + `'><i class="fa-solid fa-user"></i></span>`
-            } else {
-                div.innerHTML += `<span class='vmIcon ` + j + `'><i class="fa-solid fa-store" style="color:` + NPCs[allNPC[i]].vendingMachine[j].color + `"></i></span>`
+        for (var i = 0; i < allNPC.length; i++) {
+            const li = document.createElement('li');
+            li.className += `npc ` + allNPC[i] + ``;
+            li.innerHTML += `
+            <span class = 'Site'>`+ NPCs[allNPC[i]].site + `</span>
+            <span class = 'Name'>`+ NPCs[allNPC[i]].name + `</span>
+            `;
+            const npcVM = NPCs[allNPC[i]].vendingMachine;
+            const div = document.createElement('div');
+            const vmList = document.createElement('div');
+            vmList.className += 'vmList'
+            vmList.innerHTML += `<img class='map' src=` + NPCs[allNPC[i]].map + `>`
+            div.className += 'iconList'
+            for (var j = 0; j < npcVM.length; j++) {
+                if ((npcVM[j].color) == 'npcs') {
+                    div.innerHTML += `<span class='vmIcon ` + j + `'><i class="fa-solid fa-user"></i></span>`
+                } else {
+                    div.innerHTML += `<span class='vmIcon ` + j + `'><i class="fa-solid fa-store" style="color:` + NPCs[allNPC[i]].vendingMachine[j].color + `"></i></span>`
+                }
+                const ul = document.createElement('ul');
+                ul.className += 'vm ' + npcVM[j].color + ''
+                ul.innerHTML += `<h3 class='blTitle'>Buy List</h3>`
+                for (var k = 0; k < npcVM[j].buy.length; k++) {
+                    const prod = document.createElement('li');
+                    const buyProd = npcVM[j].buy[k];
+                    prod.className += 'product buy'
+                    prod.innerHTML += `
+                    <span class='prodName'>`+ buyProd.name + `</span>
+                    <span class='prodPrice'>`+ buyProd.price + `</span>
+                    `
+                    ul.appendChild(prod);
+                }
+                ul.innerHTML += `<h3 class='slTitle'>Sell List</h3>`
+                for (var l = 0; l < npcVM[j].sell.length; l++) {
+                    const prod = document.createElement('li');
+                    const sellProd = npcVM[j].sell[l];
+                    prod.className += 'product sell'
+                    prod.innerHTML += `
+                    <span class='prodName'>`+ sellProd.name + `</span>
+                    <span class='prodPrice'>`+ sellProd.price + `</span>
+                    `
+                    ul.appendChild(prod);
+                }
+                vmList.appendChild(ul);
             }
-            const ul = document.createElement('ul');
-            ul.className += 'vm ' + npcVM[j].color + ''
-            ul.innerHTML += `<h3 class='blTitle'>Buy List</h3>`
-            for (var k = 0; k < npcVM[j].buy.length; k++) {
-                const prod = document.createElement('li');
-                const buyProd = npcVM[j].buy[k];
-                prod.className += 'product buy'
-                prod.innerHTML += `
-                <span class='prodName'>`+ buyProd.name + `</span>
-                <span class='prodPrice'>`+ buyProd.price + `</span>
-                `
-                ul.appendChild(prod);
-            }
-            ul.innerHTML += `<h3 class='slTitle'>Sell List</h3>`
-            for (var l = 0; l < npcVM[j].sell.length; l++) {
-                const prod = document.createElement('li');
-                const sellProd = npcVM[j].sell[l];
-                prod.className += 'product sell'
-                prod.innerHTML += `
-                <span class='prodName'>`+ sellProd.name + `</span>
-                <span class='prodPrice'>`+ sellProd.price + `</span>
-                `
-                ul.appendChild(prod);
-            }
-            vmList.appendChild(ul);
+            div.innerHTML += `<span class='closeBtn'><i class="fa-solid fa-xmark"></i></span>`
+            li.appendChild(div);
+            li.appendChild(vmList);
+            npcList.appendChild(li);
         }
-        div.innerHTML += `<span class='closeBtn'><i class="fa-solid fa-xmark"></i></span>`
-        li.appendChild(div);
-        li.appendChild(vmList);
-        npcList.appendChild(li);
-    }
-
+    
 }
 
 function search(type, val) {
-    const schVal = document.querySelector('.schValue');
-    const div = document.createElement('div');
-    const products = document.querySelectorAll('.product');
-    for (var i = 0; i < products.length; i++) {
-        const from = products[i].parentNode.parentNode.parentNode;
-        const prType = products[i].classList[1];
-        const name = products[i].children[0].textContent;
-        const price = Number(products[i].children[1].textContent);
-        if(name.includes(val)){
-            if (type == 'Buyer') {
-                if (prType == 'sell') {
-                    div.innerHTML += '가격: '+price+'mk / 매입처: '+from.classList[1]+'.';
-                } else {
-                    console.log('판매만 가능한 상품입니다')
+    const allPort = Object.keys(Ports);
+    const allNPC = Object.keys(NPCs);
+    if (!val) {
+        console.log('ddd')
+    } else {
+        for (var i = 0; i < allPort.length; i++) {
+            const vm = Ports[allPort[i]].vendingMachine;
+            for (var j = 0; j < vm.length; j++) {
+                if (type = 'Buyer') {
+                    for (var k = 0; k < vm[j].sell.length; k++) {
+                        const sellProd = vm[j].sell[k];
+                        const price = sellProd.price;
+                        const name = sellProd.name;
+                        if (name.includes(val)) {
+                            const bestPrice = [];
+                            bestPrice.push(price)
+                            Math.max(bestPrice)
+                            const div = document.createElement('div');
+                            div.className += 'schRes'
+
+                        } else {
+                        }
+                    }
                 }
-            } else if (type == 'Seller') {
-                if (prType.includes('buy')) {
-                    console.log(price)
-                } else {
-                    console.log('매입만 가능한 상품입니다')
-                }
-                schVal.appendChild(div);
             }
         }
+
     }
 }
