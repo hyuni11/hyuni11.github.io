@@ -5,7 +5,6 @@ const portList = document.querySelector('.portList');
 const npcList = document.querySelector('.npcList');
 
 const sch = document.querySelector('#search');
-const schType = document.querySelector('#schType');
 const schVal = document.querySelector('.schValue');
 
 showList();
@@ -82,19 +81,23 @@ document.addEventListener('click', (e) => {
 
     //SEARCH
     if (realTarget.id == 'schBtn') {
-        const type = schType.value;
         const val = sch.value;
-        search(type, val);
+        const result = document.querySelectorAll('.result');
+        for(var i=0; i<result.length; i++){
+            result[i].remove();
+        }
+        search(val);
     }
 
 })
 
-function showList(type, val, count) {
+function showList() {
     // portList.innerHTML += '';
     const allPort = Object.keys(Ports);
         for (var i = 0; i < allPort.length; i++) {
             const li = document.createElement('li');
-            li.className += `port ` + allPort[i] + ``;
+            li.className += `port`;
+            li.id = allPort[i];
             li.innerHTML += `
             <span class = 'Site'>`+ Ports[allPort[i]].site + `</span>
             <span class = 'Name'>`+ Ports[allPort[i]].name + `</span>
@@ -143,7 +146,8 @@ function showList(type, val, count) {
     const allNPC = Object.keys(NPCs);
         for (var i = 0; i < allNPC.length; i++) {
             const li = document.createElement('li');
-            li.className += `npc ` + allNPC[i] + ``;
+            li.className += `npc`;
+            li.id = allNPC[i];
             li.innerHTML += `
             <span class = 'Site'>`+ NPCs[allNPC[i]].site + `</span>
             <span class = 'Name'>`+ NPCs[allNPC[i]].name + `</span>
@@ -194,33 +198,28 @@ function showList(type, val, count) {
     
 }
 
-function search(type, val) {
-    const allPort = Object.keys(Ports);
-    const allNPC = Object.keys(NPCs);
-    if (!val) {
-        console.log('ddd')
-    } else {
-        for (var i = 0; i < allPort.length; i++) {
-            const vm = Ports[allPort[i]].vendingMachine;
-            for (var j = 0; j < vm.length; j++) {
-                if (type = 'Buyer') {
-                    for (var k = 0; k < vm[j].sell.length; k++) {
-                        const sellProd = vm[j].sell[k];
-                        const price = sellProd.price;
-                        const name = sellProd.name;
-                        if (name.includes(val)) {
-                            const bestPrice = [];
-                            bestPrice.push(price)
-                            Math.max(bestPrice)
-                            const div = document.createElement('div');
-                            div.className += 'schRes'
-
-                        } else {
-                        }
-                    }
-                }
+function search(val) {
+    const prod = document.querySelectorAll('.product');
+    for(var i=0; i<prod.length; i++){
+        const from = prod[i].parentNode.parentNode.parentNode.id;
+        const prType = prod[i].classList[1];
+        const name = prod[i].childNodes[1].innerHTML;
+        const price = prod[i].childNodes[3].innerHTML;
+        if(val == ''){
+        } else if (name.includes(val)) {
+            if(prType == 'buy'){
+                var prTypeText = '구매';
+            } else if(prType == 'sell'){
+                prTypeText = '판매';
             }
+            const res = document.createElement('a');
+            res.className += 'result'
+            res.href = '#'+from+''
+            res.innerHTML += `
+            <span>`+prTypeText+`처 : `+from+`</span>
+            <span>상품명 : `+name+` 가격 :  `+ price +`</span>
+            <span>`+prTypeText+`가능 상품. </span>`;
+            schVal.appendChild(res);
         }
-
     }
 }
