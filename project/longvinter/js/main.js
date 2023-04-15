@@ -89,6 +89,43 @@ document.addEventListener('click', (e) => {
         search(val);
     }
 
+    if(e.target.classList.contains('result')){
+        const activer = e.target.getAttribute('activer')
+        for(var i=0; i<port.length; i++){
+            for(j=0; j<npc.length; j++){
+                if(port[i].id.includes(activer)){
+                    port[i].classList.add('active');
+                    port[i].childNodes[5].childNodes[0].classList.add('active');
+                    port[i].childNodes[6].classList.add('active');
+                    port[i].childNodes[6].childNodes[1].classList.add('active');
+                }
+                if(npc[j].id.includes(activer)){
+                    npc[j].classList.add('active');
+                    npc[j].childNodes[5].childNodes[0].classList.add('active');
+                    npc[j].childNodes[6].classList.add('active');
+                    npc[j].childNodes[6].childNodes[1].classList.add('active');
+                }
+            }
+        }
+    } else if (realTarget.classList.contains('result')){
+        const activer = realTarget.getAttribute('activer')
+        for(var i=0; i<port.length; i++){
+            for(j=0; j<npc.length; j++){
+                if(port[i].id.includes(activer)){
+                    port[i].classList.add('active');
+                    port[i].childNodes[5].childNodes[0].classList.add('active');
+                    port[i].childNodes[6].classList.add('active');
+                    port[i].childNodes[6].childNodes[1].classList.add('active');
+                }
+                if(npc[j].id.includes(activer)){
+                    npc[j].classList.add('active');
+                    npc[j].childNodes[5].childNodes[0].classList.add('active');
+                    npc[j].childNodes[6].classList.add('active');
+                    npc[j].childNodes[6].childNodes[1].classList.add('active');
+                }
+            }
+        }
+    }
 })
 
 function showList() {
@@ -214,6 +251,7 @@ function search(val) {
             }
             const res = document.createElement('a');
             res.className += 'result'
+            res.setAttribute('activer', from)
             res.href = '#'+from+''
             res.innerHTML += `
             <span>`+prTypeText+`처 : `+from+`</span>
