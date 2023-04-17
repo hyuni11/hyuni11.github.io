@@ -7,11 +7,28 @@ const npcList = document.querySelector('.npcList');
 const sch = document.querySelector('#search');
 const schVal = document.querySelector('.schValue');
 
+const bannerz = document.querySelector('.banner');
+const banner = document.querySelectorAll('.bannerImg');
+const bannerCount = banner.length;
+const bannerWidth = 880;
+const bannerMargin = 200;
+const leftBtn = document.querySelector('.leftBtn');
+const rightBtn = document.querySelector('.rightBtn');
+var currentIdx = 0;
+
+Cloning();
 showList();
 
 document.addEventListener('click', (e) => {
     e.preventDefault;
     const realTarget = e.target.parentNode;
+    if(realTarget == leftBtn){
+        movebanner(currentIdx - 1)
+    }
+    if(realTarget == rightBtn){
+        movebanner(currentIdx +1)
+    }
+
     //port active
     const port = document.querySelectorAll('.port');
     if (realTarget.classList.contains('port')) {
@@ -127,6 +144,50 @@ document.addEventListener('click', (e) => {
         }
     }
 })
+
+function Cloning(){
+    for(var i=0; i<bannerCount; i++){
+        var clonebanner = banner[i].cloneNode(true);
+        clonebanner.classList.add('clone');
+        bannerz.appendChild(clonebanner);
+    }
+    for(var i=bannerCount-1; i>=0; i--){
+        var clonebanner = banner[i].cloneNode(true);
+        clonebanner.classList.add('clone');
+        bannerz.prepend(clonebanner);
+    }
+    updateWidth();
+    settingPos();
+    
+    setTimeout(function(){
+        bannerz.classList.add('animated');
+    },100);
+}
+function updateWidth(){
+    var newbannerCount = document.querySelectorAll('.banner li').length;
+    var newWidth = (bannerWidth + bannerMargin) * newbannerCount + 'px';
+    bannerz.style.width = newWidth;
+}
+function settingPos(){
+    var defaultSetVal = -(bannerWidth + bannerMargin) * bannerCount;
+    bannerz.style.transform = 'translateX(' + defaultSetVal + 'px)';
+}
+
+function movebanner(num){
+    bannerz.style.left = -num * (bannerWidth + bannerMargin) + 'px';
+    currentIdx = num;
+    console.log(currentIdx, bannerCount)
+    if(currentIdx == bannerCount || currentIdx == -bannerCount){
+        setTimeout(function(){
+            bannerz.classList.remove('animated');
+            bannerz.style.left = '0px';
+            currentIdx = 0;
+        }, 500);
+        setTimeout(function(){
+            bannerz.classList.add('animated');
+        }, 510);
+    }
+}
 
 function showList() {
     // portList.innerHTML += '';
@@ -254,8 +315,9 @@ function search(val) {
             res.setAttribute('activer', from)
             res.href = '#'+from+''
             res.innerHTML += `
+            <span class='mainres resName'>상품명 : `+name+`</span>
+            <span class = 'mainres resPrice'> 가격 :  `+ price +`</span>
             <span>`+prTypeText+`처 : `+from+`</span>
-            <span>상품명 : `+name+` 가격 :  `+ price +`</span>
             <span>`+prTypeText+`가능 상품. </span>`;
             schVal.appendChild(res);
         }
