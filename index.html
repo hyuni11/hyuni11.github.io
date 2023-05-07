@@ -6,215 +6,114 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jang Junhyeok Portfolio</title>
-    <link rel="shortcut icon" href="./img/favicon/portfolio.png" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./src/img/favicon/portfolio.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
     <script src="https://kit.fontawesome.com/e828517a6e.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./src/css/style.css">
 </head>
 
 <body>
-    <div class="wrap bg-wg">
-        <div class="top-area">
-            <div class="main-prof">
-                <div class="pic"></div>
-                <div class="info-zone">
-                    <div class="name-zone">
-                        <h1 class="font-mg">장준혁</h1>
-                        <h2 class="font-lg">FE Developer</h2>
-                    </div>
-                    <div class="info-box">
-                        <h2 class="font-mg">1997.11.11</h2>
-                        <h2 class="font-mg">010-8692-8897</h2>
-                        <h2 class="font-mg">cret9711@naver.com</h2>
+    <header>
+        <a href="https://hyuni11.github.io/">
+            <img src="./src/img/logo/logo.png" alt="logo">
+        </a>
+    </header>
+    <div class="wrap">
+        <div class="main sec">
+            <div class="picZone">
+                <img class="profile" src="./src/img/profile.png" alt="profile">
+            </div>
+            <div class="txtZone">
+                <div class="titleZone">
+                    <p class="displayTitle subColor">소통하는 개발자,</p>
+                    <p class="displayTitle subColor"><span class="displayTitle mainColor">"장준혁"</span> 입니다.</p>
+                </div>
+                <div class="contectZone">
+                    <p class="title">Contect</p>
+                    <div class="mainContent">
+                        <p class="subTitle"><i class="fa-solid fa-square-phone mainColor"></i> 010-8692-8897</p>
+                        <p class="subTitle"><i class="fa-solid fa-square-envelope mainColor"></i> cret9711@naver.com</p>
+                        <p class="subTitle"><i class="fa-brands fa-github mainColor"></i> <a
+                                href="https://github.com/hyuni11">github.com/hyuni11</a></p>
                     </div>
                 </div>
-            </div>
-            <div class="btn-zone act-zone">
-                <button type="button" class="f2 btn prof-btn active">Profile</button>
-                <button type="button" class="f2 btn proj-btn">Project</button>
-                <button type="button" class="f2 btn skill-btn">Skills</button>
             </div>
         </div>
-        <div class="bottom-area bg-mg">
-            <div class="dots-zone act-zone">
-                <div class="dot prof-dot active"></div>
-                <div class="dot proj-dot"></div>
-                <div class="dot skill-dot"></div>
+        <div class="PJ sec">
+            <div class="skillsZone">
+                <p class="title">Skills</p>
+                <div class="mainContent badgesZone"></div>
             </div>
-            <div class="view-zone act-zone">
-                <div class="view prof-view active">
-                    <div class="about-zone">
-                        <h2 class="font-iv">About_Me</h2>
-                        <div class="txt-box bg-dg">
-                            <span class="font-iv">
-                                소통하는 개발자가 되고 싶은 장준혁 입니다.
-                                저는 지난 2021년 한 해 동안 웹 디자이너로 근무한 경험이 있으며,
-                                국비 지원 개발자 교육을 마친 뒤 2022.10 ~ 2023.01 기간 동안에는
-                                ‘나물소프트’ 라는 작은 회사에서의 인턴 경험이 있습니다.
-                                비록 국비 지원 교육 기간이 짧아 팀 프로젝트도, 포트폴리오도 만들 수 없는 기간이었지만
-                                ‘프론트엔드 개발자’가 되고 싶다는 일념 하에 스스로 공부하는 노력과,
-                                디자이너 시절 깨우치게 된 소통능력을 토대로 인턴 기간 동안에도
-                                큰 무리없이 맡은 업무를 끝마칠 수 있었습니다.
-                                비록 지금은 많이 부족하여 ‘뛰어난 개발자’가 아닌 ‘배우는 개발자’이지만,
-                                열심히 배워서 꼭 빠르게 ‘뛰어난 개발자’가 되고 싶은 것이 저의 목표입니다!
-                                제가 비록 뛰어난 개발 능력과 지식이 있는 것은 아니지만,
-                                맡은 일을 끝마치려는 책임감과, 그 부분에서 필요한 지식을 스스로 공부하여 깨우치려는 노력,
-                                원활한 소통능력을 이용하여 선배 개발자 분들에게 배우려는 욕심은
-                                그 누구에게도 뒤쳐지지 않는다고 자부하고 있습니다!<br>
-                                <br>
-                                인턴 기간 동안 제가 맡은 업무는 한 회사의 직원용 웹 중 한 페이지였습니다.
-                                큰 비중이라 말 할 수는 없지만, 앞서 말했듯이 모르는 부분은 검색하여 알아보고,
-                                그래도 이해가 되지 않을 때에는 선배님들께 여쭤보며, 결과적으로 마감일자에 맞게
-                                제가 맡은 페이지의 동작 및 서비스가 원활히 작동할 수 있게끔 만들었습니다.
-                                비록 기본적인 CRUD 구조에 몇가지 호출과 자동입력 정도의 기능을 구현한 것이 끝이지만,
-                                저는 그런 기능을 구현할 수 있다는 것 보다는 
-                                제가 스스로 고민하고 공부하며 성장하는 개발자라는 것을 말씀드리고 싶습니다!
-                            </span>
+            <div class="projecstZone">
+                <p class="title">Projects</p>
+                <div class="mainContent projectsZone cardZone">
+                    <a href="https://hyuni11.github.io/" class="card">
+                        <img class="thumnail" src="/src/img/thumnail/Portfolio Page.png" alt="thumnail">
+                        <p class="subTitle cardTitle">포트폴리오 페이지</p>
+                        <div class="useSkills pad-n">
+                            <div class="badge" bgtype="html5"></div>
+                            <div class="badge" bgtype="css3"></div>
+                            <div class="badge" bgtype="js"></div>
+                            <div class="badge" bgtype="ps"></div>
+                            <div class="badge" bgtype="ai"></div>
                         </div>
-                    </div>
-                    <div class="colu">
-                        <div class="career-zone">
-                            <h2 class="font-iv">Career</h2>
-                            <div class="txt-box bg-dg">
-                                <span class="font-iv">
-                                    [ Web-Designer ]<br>
-                                    21.03~21.05 | 리얼썸띵<br>
-                                    21.05~22.02 | 루디엠 그룹<br>
-                                    22.02~22.07 | 프리랜서<br>
-<br>                                <br>
-                                    [ FE-Developer ]<br>
-                                    22.10~23.01 | 나물소프트 (인턴)<br>
-                                </span>
-                            </div>
+                        <div class="cardContent">
+                            웹 디자인과 퍼블리싱을 하던 때에 중요하게 생각하던 <br>
+                            <b>깔끔하고 실용성 있는</b> 디자인으로 진행하기 위해,<br>
+                            <b>직접 포토샵, 일러스트 등을 이용해 디자인부터 진행</b>했으며,<br>
+                            부트스트랩의 경우 많은 기능이 필요할 것 같지 않아서 굳이 사용하지 않았습니다.<br>
+                            앞서 말씀 드렸듯, <b>기능보다는 디자인에 초점</b>을 두어<br>
+                            저의 <b>기본적인 디자인 실력과 퍼블리싱 능력만을 엿볼 수 있는 프로젝트</b>입니다.<br>
+                            <br>
+                            <small>*해당 프로젝트는 기존의 디자인과 구성이 마음에 들지 않아, 새로 만든 프로젝트입니다.</small>
                         </div>
-                        <div class="education-zone mar-n">
-                            <h2 class="font-iv">Education</h2>
-                            <div class="txt-box bg-dg">
-                                <span class="font-iv">
-                                    2014.08 | 검정고시 (고졸)<br>
-                                    2022.08 | 국비지원 JAVA 개발자 과정 수료
-                                </span>
-                            </div>
+                    </a>
+                    <a href="./project/tetris/index.html" target="_blank" class="card">
+                        <img class="thumnail" src="/src/img/thumnail/TETRIS.png" alt="thumnail">
+                        <p class="subTitle cardTitle">테트리스 웹 게임 구현</p>
+                        <div class="useSkills pad-n">
+                            <div class="badge" bgtype="html5"></div>
+                            <div class="badge" bgtype="css3"></div>
+                            <div class="badge" bgtype="js"></div>
                         </div>
-                    </div>
+                        <div class="cardContent">
+                            FE개발자라면 <b>동작의 원리나 구현 등을 잘 해야할 것 같다는 생각으로 진행</b>하게 된 프로젝트입니다.<br>
+                            독학으로 공부하며 진행하다 보니 해당 프로젝트에서 <b>처음으로 모듈화 방식을 사용</b>해 보았습니다.<br>
+                            코드를 조금이라도 깔끔하게 만들기 위해 방법을 모색하던 중 해당 방식을 발견하여 바로 사용해본 것인데,<br>
+                            생각보다 간단해서 이후로는 많이 사용할 것 같다는 생각을 합니다.<br>
+                            <b>언어의 기본기를 다지기 위해 기획한 프로젝트</b>이기에,<br>
+                            <b>리액트나 제이쿼리는 사용하지 않고 바닐라JS만을 사용</b>했습니다.
+                        </div>
+                    </a>
+                    <a href="./project/longvinter/index.html" target="_blank" class="card">
+                        <img class="thumnail" src="/src/img/thumnail/longvinter.png" alt="thumnail">
+                        <p class="subTitle cardTitle">롱빈터 위키 페이지</p>
+                        <div class="useSkills pad-n">
+                            <div class="badge" bgtype="html5"></div>
+                            <div class="badge" bgtype="css3"></div>
+                            <div class="badge" bgtype="js"></div>
+                            <div class="badge" bgtype="ps"></div>
+                            <div class="badge" bgtype="ai"></div>
+                        </div>
+                        <div class="cardContent">
+                            다음 프로젝트를 계획하던 중 '롱빈터'라는 게임을 알게되어 기획하고 진행한 프로젝트 입니다.<br>
+                            개인 적인 욕심을 부리다 일정적인 부분이 많이 꼬여서 추후에 다시 <b>재구성 할 계획이 있는 프로젝트</b> 이기도 합니다.<br>
+                            테트리스 프로젝트에서 사용한 <b>모듈화 방식을 적극 채용</b>한 프로젝트이며
+                            <b>딕셔너리, 클래스 기능을 함께 사용</b>한 프로젝트입니다.<br>
+                            또한 검색기능을 넣어 편의성을 추가해보려는 생각이었으나,<br>
+                            아직은 미숙한 실력으로 인해 꽤나 어색한 결과물이 나와버렸습니다.<br>
+                            추후 실력을 더 키운 뒤에 시간이 생기면 <b>리액트와 부트스트랩을 사용하여 모바일에서도 사용할 수 있게</b>만들어볼 생각입니다.
+                        </div>
+                    </a>
                 </div>
-                <div class="view proj-view">
-                    <a class="prev arrow"><i class="fa-3x fa-solid fa-chevron-left"></i></a>
-                    <div class="slide-show">
-                        <ul class="card-zone">
-                            <li class="card bg-lg">
-                                <div class="thumnail"><img src="./img/thumnail/Portfolio Page.png" alt=""></div>
-                                <h2 class="font-dg">Portfolio Page</h2>
-                                <div class="txt-box">
-                                    <span class="font-mg">
-                                        HTML, CSS, JS를 이용해서 만든 포트폴리오 페이지 입니다.
-                                        간단하게 제 소개, 이력 및 작업물들과 그에 대한 간략한 설명을 볼 수 있으며,
-                                        소개 하단에는 각각의 링크를 걸어 작업물의 디테일을 확인 하실 수도 있습니다.
-                                        <br>
-                                        <br>
-                                        리액트를 이용해서 만들까 했으나, 기획 단계에서 동작이나 함수가 그리 많이 사용되지 않을 것으로 보았고,
-                                        또 제 소개의 기본이 되는 페이지이다 보니 바닐라 JS를 이용하기로 했습니다.
-                                    </span>
-                                    <a href="#" class="link font-iv">바로가기&nbsp;<i class="fa-solid fa-chevron-right"></i></a>
-                                </div>
-                            </li>
-                            <li class="card bg-lg">
-                                <div class="thumnail"><img src="./img/thumnail/TETRIS.png" alt=""></div>
-                                <h2 class="font-dg">Tetris</h2>
-                                <div class="txt-box">
-                                    <span class="font-mg">
-                                        HTML, CSS, JS를 이용해서 만든 테트리스 게임입니다.
-                                        어떤 프로젝트를 진행할지 고민 하던 중에,
-                                        게임을 만들면 언어에 대한 이해도를 조금 더 어필 할 수 있지 않을까 하는 생각으로 진행했습니다.
-                                        <br>
-                                        프로젝트를 진행하며 '자바스크립트'라는 언어에 조금 더 친숙해진 것 같다는 생각을 잠시 했습니다만,
-                                        동시에 갈 길이 멀구나 하는 생각 또한 들었습니다.
-                                        앞으로는 더 열심히 배워, 보다 완벽한 결과물을 만들고자 하는 욕심 또한 생겼습니다.
-                                    </span>
-                                    <a href="./project/tetris/index.html" target="_blank" class="link font-iv">바로가기&nbsp;<i class="fa-solid fa-chevron-right"></i></a>
-                                </div>
-                            </li>
-                            <li class="card bg-lg">
-                                <div class="thumnail"><img src="./img/thumnail/longvinter.png" alt=""></div>
-                                <h2 class="font-dg">LongVinter Wiki</h2>
-                                <div class="txt-box">
-                                    <span class="font-mg">
-                                        HTML, CSS, JS를 이용해서 만든 '롱빈터'라는 게임 속 자판기,
-                                        각 자판기의 판매 품목 리스트 입니다.
-                                        단순히 리스트를 불러오는 것 뿐 아니라, 특정 상품을 검색하여 매입처와 판매처를 알려주는 기능을 넣었습니다.
-                                        자바스크립트의 딕셔너리와 어레이를 공부하면서 작업을 진행하느라 주먹구구식 하드코딩으로 데이터를 넣었지만,
-                                        해당 데이터를 불러와서 정렬하고, 보여지게 하는 부분 등을 이해하는데 큰 도움이 되었습니다.
-                                        이를 중심으로 추후 백엔드 개발자 분들과 협업시에 서버에서 받은 데이터를 조금 더 효과적으로 사용할 수 있겠다는 생각 또한 했습니다.
-                                        *1.10c 버전을 기준으로 하고 있습니다.
-                                    </span>
-                                    <a href="./project/longvinter/index.html" target="_blank" class="link font-iv">바로가기&nbsp;<i class="fa-solid fa-chevron-right"></i></a>
-                                </div>
-                            </li>
-                            <li class="card bg-lg">
-                                <div class="thumnail"><img src="" alt=""></div>
-                                <h2 class="font-dg">PxArt</h2>
-                                <div class="txt-box">
-                                    <span class="font-mg">
-                                        
-                                    </span>
-                                    <a href="" target="_blank" class="link font-iv">바로가기&nbsp;<i class="fa-solid fa-chevron-right"></i></a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <a class="next arrow"><i class="fa-3x fa-solid fa-chevron-right"></i></a>
-                </div>
-                <div class="view skill-view">
-                    <div class="row skill">
-                        <div class="icon">
-                            <div class="circle bg-dg">
-                                <i class="font-lg fa-brands fa-html5"></i>
-                            </div>
-                            <span class="font-dg bold">HTML5</span>
-                        </div>
-                        <div class="gage-zone bg-dg">
-                            <div class="gage gage-75 bg-lg"></div>
-                        </div>
-                        <h3 class="font-iv">75%</h3>
-                    </div>
-                    <div class="row skill">
-                        <div class="icon">
-                            <div class="circle bg-dg">
-                                <i class="font-lg fa-brands fa-css3-alt"></i>
-                            </div>
-                            <span class="font-dg bold">CSS3</span>
-                        </div>
-                        <div class="gage-zone bg-dg">
-                            <div class="gage gage-65 bg-lg"></div>
-                        </div>
-                        <h3 class="font-iv">65%</h3>
-                    </div>
-                    <div class="row skill">
-                        <div class="icon">
-                            <div class="circle bg-dg">
-                                <i class="font-lg fa-brands fa-js"></i>
-                            </div>
-                            <span class="font-dg bold">Java Script</span>
-                        </div>
-                        <div class="gage-zone bg-dg">
-                            <div class="gage gage-70 bg-lg"></div>
-                        </div>
-                        <h3 class="font-iv">70%</h3>
-                    </div>
-                    <div class="row skill">
-                        <div class="icon">
-                            <div class="circle bg-dg">
-                                <i class="font-lg fa-brands fa-react"></i>
-                            </div>
-                            <span class="font-dg bold">React</span>
-                        </div>
-                        <div class="gage-zone bg-dg">
-                            <div class="gage gage-55 bg-lg"></div>
-                        </div>
-                        <h3 class="font-iv">55%</h3>
-                    </div>
+            </div>
+        </div>
+        <div class="end sec">
+            <div class="resumeZone">
+                <p class="title">Resume<span class="mainColor subTitle">(More Introduce)</span></p>
+                <div class="mainContent">
+                    <a class="subTitle" href="https://www.notion.so/93809e4bfe604a58ae1a1d5657029943?pvs=4" target="_blank">&nbsp; 소통하는 개발자, "장준혁" 입니다.(Notion-이력서)</a>
                 </div>
             </div>
         </div>
@@ -222,4 +121,4 @@
 </body>
 
 </html>
-<script src="index.js"></script>
+<script src="./src/js/script.js" type="module"></script>
