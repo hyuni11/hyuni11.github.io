@@ -175,6 +175,7 @@ header {
 	padding: 1rem 0 1rem 0;
     border-bottom: 1px solid var(--c-sub);
     background-color: rgba(245, 245, 245, 0.7);
+    backdrop-filter: blur(3px);
 }
 
 .wrap {
