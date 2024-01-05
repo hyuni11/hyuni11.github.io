@@ -68,13 +68,17 @@ input, select {
     line-height: 20px;
 }
 .smallT {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 400;
-    line-height: 15px;
+    line-height: 17px;
 }
 .blueT {
     font-weight: 500;
     color: var(--c-blue);
+}
+.greyT {
+    font-weight: 500;
+    color: var(--c-grey);
 }
 .prodTitle {
     font-size: 20px;
@@ -110,13 +114,13 @@ input, select {
     display: flex;
 }
 .colorBar {
-    width: 50px;
-    height: 10px;
+    width: 35px;
+    height: 8px;
     margin-right: 0.5rem;
     cursor: pointer;
 }
 .colorBar:last-child {margin: 0;}
-.colorBar.active {height: 18px;}
+.colorBar.active {height: 12px;}
 
 .colorChipZone {
     display: flex;
@@ -250,47 +254,75 @@ header .menu .innerMenu .dep2:hover {
 section{padding-top: 50px;}
 /* 공용 */
 
-/* itemArea */
-.itemArea {margin: 80px 0;}
-.itemArea .titleZone {text-align: center; margin-bottom: 40px;}
-.itemArea .titleZone p {cursor: pointer;}
-.itemArea .titleZone .category {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0; 
+.wrap {
+    display: flex; 
+    position: relative;
 }
-.itemArea .titleZone .category p {padding: 0 0.5rem; font-weight: 300; cursor: pointer;}
-.itemArea .titleZone .category p.active {font-weight: 500; border-bottom: 2px solid var(--c-blue);}
-.itemArea .itemZone {
+.detailView {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 1440px;
+    padding-top: 60px;
+}
+.detailView .product {
+    flex-direction: column;
+    width: 1440px;
+}
+
+.detailView .product .detailPic {
+    max-width: 850px;
     margin: 0 auto;
 }
-.itemArea .itemZone .item {
-    width: 340px;
-    margin: 0 10px 40px 10px;
-    cursor: pointer;
+.detailView .product .detailPic img {width: 100%; object-fit: cover;}
+
+.infoArea {
+    position: fixed;
+    overflow: hidden;
+    right: 0;
+    height: 100%;
+    padding: 60px 120px 0 80px;
+    border-left: 1px solid var(--c-blue);
+    background: #fff;
 }
-.itemArea .itemZone .item .thumbNail {
+.infoArea .infoZone .titleZone { margin-bottom: 2rem;}
+.infoArea .infoZone .titleZone .colorBarZone {
+    padding-bottom: 0.5rem;
+    border-bottom: 0.5px solid var(--c-gray);
+}
+.infoArea .infoZone .titleZone .txtZone .prodTitle {padding: 0.5rem 0;}
+.infoArea .infoZone .matterZone { display: flex; margin-bottom: 0.5rem;}
+.infoArea .infoZone .matterZone .matter { margin-left: 0.5rem;}
+.infoArea .infoZone .explain { margin-bottom: 0.5rem;}
+
+.infoArea .paymentZone {margin-top: 2.5rem; text-align: center;}
+.infoArea .paymentZone .size {
     width: 100%;
-    margin-bottom: 0.5rem;
+    padding: 0.5rem 0;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    border: 0.5px solid var(--c-gray);
 }
-.itemArea .itemZone .item .thumbNail img {
+.infoArea .paymentZone .btnZone {
     width: 100%;
-    object-fit: cover;
-}
-.itemArea .itemZone .item .expZone {
     display: flex;
     justify-content: space-between;
-    align-items: end;
-    padding: 0 1rem;
 }
-.itemArea .itemZone .item .expZone .leftTxt {
-    display: flex;
-    align-items: center;
+.infoArea .paymentZone .btnZone .btn {
+    width: calc(50% - 5px);
+    height: 40px;
+    padding: 0.5rem 0;
 }
-.itemArea .itemZone .item .expZone .leftTxt span {margin-right: 0.5rem;}
-
-/* itemArea */
+.infoArea .paymentZone .btnZone .cartBtn {
+    border: 0.5px solid var(--c-blue);
+    color: var(--c-blue);
+}
+.infoArea .paymentZone .btnZone .buyBtn {
+    background-color: var(--c-blue);
+    color: #fff;
+}
+.infoArea .paymentZone .btnZone .btn span {
+    font-size: 14px;
+    font-weight: 600;
+}
+.infoArea .paymentZone .btnZone .btn .icon {
+    font-size: 18px;
+    vertical-align: text-bottom;
+}

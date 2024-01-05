@@ -247,6 +247,9 @@ header .menu .innerMenu .dep2:hover {
 }
 /* header hover */
 /* header & footer */
+section{padding-top: 50px;}
+/* 공용 */
+
 /* itemArea */
 .itemArea {margin: 80px 0;}
 .itemArea .titleZone {text-align: center; margin-bottom: 40px;}
@@ -290,8 +293,6 @@ header .menu .innerMenu .dep2:hover {
 }
 .itemArea .itemZone .item .expZone .leftTxt span {margin-right: 0.5rem;}
 /* itemArea */
-section{padding-top: 50px;}
-/* 공용 */
 
 .banner {
     width: 100%;
