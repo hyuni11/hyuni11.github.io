@@ -1,3 +1,4 @@
+const dv = document.querySelector('.detailView');
 document.addEventListener('click', (e)=>{
     if(e.target.classList.contains('colorBar')){
         if(e.target.classList.contains('firCB')){
@@ -10,6 +11,7 @@ document.addEventListener('click', (e)=>{
                 };
                 prod[0].classList.add('active');
                 cb[0].classList.add('active');
+                window.scrollTo({top:dv.offsetTop, behavior: 'smooth'});
             }
         } else if(e.target.classList.contains('secCB')){
             var prod = document.querySelectorAll('.product');
@@ -21,6 +23,7 @@ document.addEventListener('click', (e)=>{
                 };
                 prod[1].classList.add('active');
                 cb[1].classList.add('active');
+                window.scrollTo({top:dv.offsetTop, behavior: 'smooth'});
             }    
         } else if(e.target.classList.contains('thrCB')){
             var prod = document.querySelectorAll('.product');
@@ -32,6 +35,7 @@ document.addEventListener('click', (e)=>{
                 };
                 prod[2].classList.add('active');
                 cb[2].classList.add('active');
+                window.scrollTo({top:dv.offsetTop, behavior: 'smooth'});
             }    
         }
     }
